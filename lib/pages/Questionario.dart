@@ -1,3 +1,4 @@
+import 'package:atividade_avaliativa2_p3/pages/resultado.dart';
 import 'package:flutter/material.dart';
 
 class Questionario extends StatefulWidget {
@@ -11,9 +12,6 @@ class _QuestionarioState extends State<Questionario> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //Cor de fundo
-      backgroundColor: Colors.white,
-
       //AppBar
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -29,7 +27,6 @@ class _QuestionarioState extends State<Questionario> {
 
       body: Column(
         children: [
-
           //Pergutas(Início)
           Text('Telefonou para a vítima?'),
           TextField(),
@@ -48,10 +45,18 @@ class _QuestionarioState extends State<Questionario> {
           //Pergutas(Fim)
 
           //Botão para salvar os dados
-          ElevatedButton(onPressed: () {}, child: Text('Salvar respostas')),
+          ElevatedButton(onPressed: () {}, child: Text('Salvar Respostas')),
 
-          //Botão para ver o resultado. Leva para a página Resultado.dart 
-          ElevatedButton(onPressed: () {}, child: Text('Ver resultado')),
+          //Botão para ver o resultado. Leva para a página Resultado.dart
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Resultado()),
+              );
+            },
+            child: Text('Ver resultado'),
+          ),
         ],
       ),
     );
