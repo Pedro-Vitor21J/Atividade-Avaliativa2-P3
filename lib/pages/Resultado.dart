@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:atividade_avaliativa2_p3/pages/Questionario.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Resultado extends StatefulWidget {
@@ -49,17 +48,37 @@ class _ResultadoState extends State<Resultado> {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          Text('Com base nas suas respostas, concluímos que você é:'),
-          Text(resultado),
-          ElevatedButton(
-            onPressed: () {
-              carregarDados();
-            },
-            child: Text('Mostrar Resultado'),
-          ),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Com base nas suas respostas, concluímos que você é:',
+              style: TextStyle(fontSize: 25),
+            ),
+            SizedBox(height: 20),
+            Text(
+              resultado,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0),
+                ),
+              ),
+              onPressed: () {
+                carregarDados();
+              },
+              child: Text(
+                'Mostrar Resultado',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
