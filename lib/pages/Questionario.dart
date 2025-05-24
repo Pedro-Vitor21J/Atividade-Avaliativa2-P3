@@ -124,7 +124,7 @@ class _QuestionarioState extends State<Questionario> {
                 MaterialPageRoute(builder: (context) => Resultado()),
               );
             },
-            child: Text('Ver resultado'),
+            child: Text('Ver Resultado'),
           ),
         ],
       ),

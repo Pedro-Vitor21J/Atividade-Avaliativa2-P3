@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:atividade_avaliativa2_p3/pages/Questionario.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Resultado extends StatefulWidget {
   const Resultado({super.key});
@@ -8,6 +10,30 @@ class Resultado extends StatefulWidget {
 }
 
 class _ResultadoState extends State<Resultado> {
+  String resultado = '';
+
+  Future<void> carregarDados() async {
+    final preference = await SharedPreferences.getInstance();
+
+    List<String>? simContador = preference.getStringList('SimContador');
+    int totalSim = simContador?.length ?? 0;
+
+    setState(() {
+      if (totalSim <= 1) {
+        resultado = 'INOCENTE';
+      }
+      if (totalSim == 2) {
+        resultado = 'SUSPEITO';
+      }
+      if (totalSim >= 3 && totalSim <= 4) {
+        resultado = 'CÚMPLICE';
+      }
+      if (totalSim == 5) {
+        resultado = 'O ASSASINO!';
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,8 +51,14 @@ class _ResultadoState extends State<Resultado> {
       ),
       body: Column(
         children: [
-          Text('Com base nas suas respostas, concluímos que você é'),
-          Text('O ASSASINO'),
+          Text('Com base nas suas respostas, concluímos que você é:'),
+          Text(resultado),
+          ElevatedButton(
+            onPressed: () {
+              carregarDados();
+            },
+            child: Text('Mostrar Resultado'),
+          ),
         ],
       ),
     );
