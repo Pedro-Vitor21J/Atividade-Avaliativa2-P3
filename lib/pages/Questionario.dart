@@ -10,7 +10,7 @@ class Questionario extends StatefulWidget {
 }
 
 class _QuestionarioState extends State<Questionario> {
-  //Scanea o teclado do usuário
+  //Ler o teclado do usuário
   TextEditingController controllerResposta1 = TextEditingController();
   TextEditingController controllerResposta2 = TextEditingController();
   TextEditingController controllerResposta3 = TextEditingController();
@@ -53,9 +53,6 @@ class _QuestionarioState extends State<Questionario> {
     controllerResposta3.clear();
     controllerResposta4.clear();
     controllerResposta5.clear();
-
-    //Teste
-    print(simContador);
   }
 
   @override
@@ -74,59 +71,172 @@ class _QuestionarioState extends State<Questionario> {
         ),
       ),
 
-      body: Column(
-        children: [
-          //Pergutas(Início)
-          Text('Telefonou para a vítima?'),
-          TextField(
-            controller: controllerResposta1,
-            decoration: InputDecoration(),
-          ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20.0),
+        child: Column(
+          children: [
+            SizedBox(height: 20),
 
-          Text('Esteve no local do crime?'),
-          TextField(
-            controller: controllerResposta2,
-            decoration: InputDecoration(),
-          ),
+            // Iníco das pergutas
+            Text(
+              'Telefonou para a vítima?',
+              textAlign: TextAlign.left,
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(height: 10),
+            TextField(
+              controller: controllerResposta1,
+              cursorColor: Colors.black,
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: Colors.black, width: 1),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: Colors.black, width: 2),
+                ),
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 12,
+                ),
+              ),
+            ),
 
-          Text('Mora perto da vítima?'),
-          TextField(
-            controller: controllerResposta3,
-            decoration: InputDecoration(),
-          ),
+            SizedBox(height: 20),
 
-          Text('Devia para a vítima?'),
-          TextField(
-            controller: controllerResposta4,
-            decoration: InputDecoration(),
-          ),
+            Text('Esteve no local do crime?', style: TextStyle(fontSize: 20)),
+            SizedBox(height: 10),
+            TextField(
+              controller: controllerResposta2,
+              cursorColor: Colors.black,
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: Colors.black, width: 1),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: Colors.black, width: 2),
+                ),
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 12,
+                ),
+              ),
+            ),
 
-          Text('Já trabalhou com a vítima'),
-          TextField(
-            controller: controllerResposta5,
-            decoration: InputDecoration(),
-          ),
-          //Pergutas(Fim)
+            SizedBox(height: 20),
 
-          //Botão para salvar os dados
-          ElevatedButton(
-            onPressed: () {
-              salvarDados();
-            },
-            child: Text('Salvar Respostas'),
-          ),
+            Text('Mora perto da vítima?', style: TextStyle(fontSize: 20)),
+            SizedBox(height: 10),
+            TextField(
+              controller: controllerResposta3,
+              cursorColor: Colors.black,
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: Colors.black, width: 1),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: Colors.black, width: 2),
+                ),
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 12,
+                ),
+              ),
+            ),
 
-          //Botão para ver o resultado. Leva para a página Resultado.dart
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Resultado()),
-              );
-            },
-            child: Text('Ver Resultado'),
-          ),
-        ],
+            SizedBox(height: 20),
+
+            Text('Devia para a vítima?', style: TextStyle(fontSize: 20)),
+            SizedBox(height: 10),
+            TextField(
+              controller: controllerResposta4,
+              cursorColor: Colors.black,
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: Colors.black, width: 1),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: Colors.black, width: 2),
+                ),
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 12,
+                ),
+              ),
+            ),
+
+            SizedBox(height: 20),
+
+            Text('Já trabalhou com a vítima?', style: TextStyle(fontSize: 20)),
+            SizedBox(height: 10),
+            TextField(
+              controller: controllerResposta5,
+              cursorColor: Colors.black,
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: Colors.black, width: 1),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: Colors.black, width: 2),
+                ),
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 12,
+                ),
+              ),
+            ),
+
+            // Fim das pergutas
+            SizedBox(height: 40),
+
+            // Botão para salvar os dados
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0),
+                ),
+              ),
+              onPressed: salvarDados,
+              child: Text(
+                'Salvar Respostas',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+            ),
+
+            SizedBox(height: 20),
+
+            // Botão para ver o resultado
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0),
+                ),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Resultado()),
+                );
+              },
+              child: Text(
+                'Ver Resultado',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+            ),
+            SizedBox(height: 20),
+          ],
+        ),
       ),
     );
   }
